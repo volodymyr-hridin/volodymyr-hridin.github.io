@@ -82,6 +82,9 @@ button.btn{font:inherit;font-weight:600;cursor:pointer;background:transparent}
 .c-form input:focus,.c-form textarea:focus{outline:2px solid #8fb0ff;outline-offset:1px}
 .c-form .btn.primary{justify-content:center;border:0}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+#totop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:22px;line-height:48px;text-align:center;cursor:pointer;box-shadow:0 6px 18px rgba(20,30,50,.25);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s,transform .25s;z-index:40}
+#totop.show{opacity:1;pointer-events:auto;transform:none}
+#totop:hover{opacity:.85}
 .auto{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .auto div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
 .auto h4{color:var(--navy);font-size:16px;margin-bottom:6px}
@@ -126,7 +129,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
   <h1>Paid acquisition that scales without losing efficiency.</h1>
   <p class="lead">6+ years running Google Ads, Microsoft Ads and Meta Ads for e-commerce, SaaS, lead generation and HR-tech in the US, UK, Europe, Canada, APAC, India and the Middle East. I build accounts end to end, from structure and feeds to bidding and scaling, and I automate the routine work with scripts and AI.</p>
   <div class="cta">
-    <a class="btn primary" href="Volodymyr_Hridin_CV.pdf" download>Download CV</a>
+    <a class="btn primary" href="Volodymyr_Hridin_Senior_PPC_Manager_CV.pdf" download>Download CV</a>
     <a class="btn ghost" href="https://www.linkedin.com/in/volodymyr-hridin-1baa33159/" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn ghost" href="#contact">Contact me</a>
   </div>
@@ -323,13 +326,13 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
           <button class="btn ghost" type="button" id="copy">Copy email</button>
           <a class="btn ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=volodymyr.hridin@gmail.com" target="_blank" rel="noopener">Write in Gmail</a>
           <a class="btn ghost" href="https://www.linkedin.com/in/volodymyr-hridin-1baa33159/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn ghost" href="Volodymyr_Hridin_CV.pdf" download>Download CV</a>
+          <a class="btn ghost" href="Volodymyr_Hridin_Senior_PPC_Manager_CV.pdf" download>Download CV</a>
         </div>
       </div>
       <form class="c-form" action="https://formsubmit.co/volodymyr.hridin@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New message from your portfolio site">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://volodymyradrise.github.io/thanks.html">
+        <input type="hidden" name="_next" value="https://volodymyr-hridin.github.io/thanks.html">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
         <label>Your name<input type="text" name="name" required autocomplete="name"></label>
         <label>Your email<input type="email" name="email" required autocomplete="email"></label>
@@ -343,12 +346,15 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 
 <footer>© 2026 Volodymyr Hridin</footer>
 
+<button id="totop" type="button" aria-label="Back to top" title="Back to top">↑</button>
 <div id="lb" onclick="this.style.display='none'"><img alt=""></div>
 <script>
 document.querySelectorAll('.shots img').forEach(function(i){
   i.addEventListener('click',function(){var lb=document.getElementById('lb');lb.querySelector('img').src=i.src;lb.style.display='flex';});
 });
 var cp=document.getElementById('copy');if(cp)cp.addEventListener('click',function(){var e='volodymyr.hridin@gmail.com';function done(){cp.textContent='Copied ✓';setTimeout(function(){cp.textContent='Copy email'},2000)}try{navigator.clipboard.writeText(e).then(done,function(){prompt('Email:',e)})}catch(x){prompt('Email:',e)}});
+var tt=document.getElementById('totop');tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+function tv(){tt.classList.toggle('show',window.scrollY>600)}window.addEventListener('scroll',tv,{passive:true});tv();
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').style.display='none';});
 </script>
 </body>
