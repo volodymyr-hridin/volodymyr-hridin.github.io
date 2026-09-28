@@ -21,7 +21,8 @@ a:hover{text-decoration:underline}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 nav{position:sticky;top:0;z-index:10;background:rgba(246,247,249,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
-nav .brand{font-weight:800;color:var(--navy);letter-spacing:.02em}
+nav .brand{font-weight:800;color:var(--navy);letter-spacing:.02em;text-decoration:none}
+nav .brand:hover{text-decoration:none;opacity:.8}
 nav .links{display:flex;gap:22px;font-size:14px}
 nav .links a{color:var(--muted)}
 nav .links a:hover{color:var(--navy);text-decoration:none}
@@ -63,6 +64,24 @@ h2{font-size:30px;color:var(--navy);letter-spacing:-.01em;margin-bottom:8px}
 .cap{font-size:12px;color:var(--muted);margin-top:6px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .grid2 .case{margin-bottom:0}
+.sys{margin-bottom:22px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 6px}
+.flow div{background:var(--bg);border-radius:12px;padding:16px}
+.flow b{color:var(--navy);display:block;margin-bottom:6px}
+.flow p{font-size:14px;color:#3a4252}
+.contact .mail{font-size:clamp(16px,4.5vw,22px);font-weight:700;margin-bottom:6px;overflow-wrap:anywhere}
+.contact .mail a{color:#fff}
+button.btn{font:inherit;font-weight:600;cursor:pointer;background:transparent}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;text-align:left;align-items:start}
+.c-info .cta{justify-content:flex-start}
+.c-form{display:grid;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:22px}
+.c-form label{display:grid;gap:6px;font-size:14px;color:#dfe5f0;font-weight:500}
+.c-form label span{color:#9aa6bb;font-weight:400}
+.c-form input,.c-form textarea{font:inherit;font-size:15px;padding:11px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:#fff;color:var(--ink);width:100%}
+.c-form textarea{resize:vertical}
+.c-form input:focus,.c-form textarea:focus{outline:2px solid #8fb0ff;outline-offset:1px}
+.c-form .btn.primary{justify-content:center;border:0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .auto{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .auto div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
 .auto h4{color:var(--navy);font-size:16px;margin-bottom:6px}
@@ -73,19 +92,19 @@ h2{font-size:30px;color:var(--navy);letter-spacing:-.01em;margin-bottom:8px}
 .job .when{color:var(--muted);font-size:14px}
 .job h4{color:var(--navy);font-size:17px}
 .job p{color:#3a4252;font-size:15px;margin-top:4px}
-.contact{background:var(--navy);color:#fff;border-radius:20px;padding:44px;text-align:center}
+.contact{background:var(--navy);color:#fff;border-radius:20px;padding:44px}
 .contact h2{color:#fff}
 .contact p{color:#c9d1e0;margin-bottom:24px}
 .contact .btn.primary{background:#fff;color:var(--navy);border-color:#fff}
 .contact .btn.ghost{color:#fff;border-color:#fff}
-.contact .cta{justify-content:center}
+.contact .cta{justify-content:flex-start}
 footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 .note{font-size:13px;color:var(--muted);margin-top:14px}
 #lb{position:fixed;inset:0;background:rgba(10,14,22,.86);display:none;align-items:center;justify-content:center;z-index:50;padding:20px;cursor:zoom-out}
 #lb img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
 @media (max-width:820px){
   .stats{grid-template-columns:1fr 1fr}
-  .auto{grid-template-columns:1fr}
+  .auto,.flow,.c-grid{grid-template-columns:1fr}
   .grid2,.shots.two{grid-template-columns:1fr}
   .job{grid-template-columns:1fr;gap:4px}
   nav .links{display:none}
@@ -95,10 +114,10 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 }
 </style>
 </head>
-<body>
+<body id="top">
 
 <nav><div class="wrap">
-  <div class="brand">Volodymyr Hridin</div>
+  <a class="brand" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Volodymyr Hridin</a>
   <div class="links"><a href="#cases">Case studies</a><a href="#automation">Automation</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
 </div></nav>
 
@@ -109,11 +128,11 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
   <div class="cta">
     <a class="btn primary" href="Volodymyr_Hridin_CV.pdf" download>Download CV</a>
     <a class="btn ghost" href="https://www.linkedin.com/in/volodymyr-hridin-1baa33159/" target="_blank" rel="noopener">LinkedIn</a>
-    <a class="btn ghost" href="mailto:volodymyr.hridin@gmail.com">Email me</a>
+    <a class="btn ghost" href="#contact">Contact me</a>
   </div>
   <div class="stats">
     <div class="stat"><b>8.9x ROAS</b><span>$8.27M revenue from $925K, jewelry e-commerce (US)</span></div>
-    <div class="stat"><b>$1M / month</b><span>peak combined client portfolio spend</span></div>
+    <div class="stat"><b>$1M+ / month</b><span>combined client portfolio spend</span></div>
     <div class="stat"><b>10+ markets</b><span>run in parallel on uncapped budgets</span></div>
     <div class="stat"><b>6+ years</b><span>hands-on PPC across B2B, B2C and e-commerce</span></div>
   </div>
@@ -256,12 +275,28 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 
 <section id="automation"><div class="wrap">
   <h2>Automation &amp; AI</h2>
-  <p class="sub">Tools I built with Google Ads Scripts, Apps Script and Claude Code. They run at MCC level across accounts.</p>
+  <p class="sub">Systems I designed and built myself with Google Ads Scripts, the Google Ads API, Apps Script, Vertex AI and Claude Code. They run at MCC level across accounts.</p>
+  <article class="case featured sys">
+    <span class="tag">Flagship system · PMax &amp; Search</span>
+    <h3>Automated ad asset optimisation</h3>
+    <p class="period">Three connected scripts: analyse → AI suggests → apply</p>
+    <div class="flow">
+      <div><b>1 · Analyser</b><p>Pulls asset-level data from the Google Ads API: PMax asset groups, RSA headlines and descriptions, extensions. Scores each asset by CTR against its type average, conversions and ROAS against dynamic campaign targets. Video is scored on conversions and ROAS only. Output: prioritised recommendations in Google Sheets.</p></div>
+      <div><b>2 · AI generator</b><p>Gemini 2.5 Flash via Vertex AI writes three replacements for each weak asset. Only the ad text goes to the model, never metrics, budgets or business data. Character limits and duplicates are checked, then a human approves.</p></div>
+      <div><b>3 · Auto-replacer</b><p>Applies approved changes through the API. PMax: unlink old asset, create new, relink. Search: replaces text inside the existing RSA and keeps the ad ID. DRY RUN mode for safe checks.</p></div>
+    </div>
+    <div class="metrics">
+      <div class="m"><b>104</b><span>asset variants in the first full run</span></div>
+      <div class="m"><b>€0.08</b><span>total AI cost of that run</span></div>
+      <div class="m"><b>20–30 min</b><span>instead of several hours of manual work</span></div>
+    </div>
+    <p><a href="https://docs.google.com/document/d/1KlP1NYHVdE-ieMFuwdgUDNZLapNYK_czADMjBGVe5Bc/edit" target="_blank" rel="noopener">Read the full technical write-up (in Ukrainian) →</a></p>
+  </article>
   <div class="auto">
+    <div><h4>Daily ROMI adjustments</h4><p>Reads each campaign's previous-day ROMI and adjusts campaigns automatically, so spend follows return every day.</p></div>
     <div><h4>Target monitoring</h4><p>Flags campaigns that drift from CPA, ROAS or cost-per-profile targets, so problems surface in days, not weeks.</p></div>
     <div><h4>PMax placement control</h4><p>Monitors Performance Max placements and excludes irrelevant ones automatically.</p></div>
-    <div><h4>Search-term mining</h4><p>N-gram analysis of search terms to find negatives and new keyword themes.</p></div>
-    <div><h4>AI asset optimisation</h4><p>Three-step pipeline (analyse → AI suggests → apply) that finds weak ad assets and rolls out replacements.</p></div>
+    <div><h4>Keywords &amp; negatives</h4><p>Automated campaign analysis: n-gram mining of search terms, new keyword themes and negative keyword lists.</p></div>
     <div><h4>Shopping labelling</h4><p>Labels products by performance so bids and budgets go to the items that sell.</p></div>
     <div><h4>Reporting &amp; pacing</h4><p>Cross-account MCC reports, budget pacing alerts and Jira → Sheets integrations.</p></div>
   </div>
@@ -271,7 +306,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
   <h2>Experience</h2>
   <div class="exp">
     <div class="job"><div class="when">Aug 2025 – Present</div><div><h4>Jooble · PPC Marketing Manager &amp; Growth Initiative Owner</h4><p>One of the largest job search engines worldwide. I run Google Ads, Microsoft Ads and Meta Ads across 10+ markets on uncapped budgets. I also own a profession-led growth initiative in 7 European markets, delivered with SEO, affiliate, design and engineering teams.</p></div></div>
-    <div class="job"><div class="when">Jan 2024 – Sep 2026</div><div><h4>Reload Media (Australia) · PPC Marketing Manager</h4><p>Award-winning Google Premier Partner agency. Managed Google Ads and Meta Ads for clients in AU, US, UK, Europe and APAC: individual accounts up to $100K/month, combined portfolio up to $1M/month. Mentored junior and middle PPC specialists.</p></div></div>
+    <div class="job"><div class="when">Jan 2024 – Sep 2026</div><div><h4>Reload Media (Australia) · PPC Marketing Manager</h4><p>Award-winning Google Premier Partner agency. Managed Google Ads and Meta Ads for clients in AU, US, UK, Europe and APAC: individual accounts up to $100K/month, combined portfolio $1M+/month. Mentored junior and middle PPC specialists.</p></div></div>
     <div class="job"><div class="when">Jul 2023 – Feb 2026</div><div><h4>Poster (US) · PPC Specialist</h4><p>Google Ads acquisition strategy and delivery for the US market.</p></div></div>
     <div class="job"><div class="when">2020 – 2025</div><div><h4>Earlier roles &amp; consulting</h4><p>XYZ Digital Solutions, Digital Agency and independent client projects: B2B, SaaS, e-commerce, EdTech and travel in the US, Canada and Eastern Europe.</p></div></div>
   </div>
@@ -279,12 +314,29 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 
 <section id="contact"><div class="wrap">
   <div class="contact">
-    <h2>Let's talk</h2>
-    <p>Based in Valencia, Spain · open to remote roles</p>
-    <div class="cta">
-      <a class="btn primary" href="mailto:volodymyr.hridin@gmail.com">volodymyr.hridin@gmail.com</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/volodymyr-hridin-1baa33159/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn ghost" href="Volodymyr_Hridin_CV.pdf" download>Download CV</a>
+    <div class="c-grid">
+      <div class="c-info">
+        <h2>Let's talk</h2>
+        <p>Open to Senior PPC and performance marketing roles. Based in Valencia, Spain; open to remote.</p>
+        <p class="mail"><a href="mailto:volodymyr.hridin@gmail.com">volodymyr.hridin@gmail.com</a></p>
+        <div class="cta">
+          <button class="btn ghost" type="button" id="copy">Copy email</button>
+          <a class="btn ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=volodymyr.hridin@gmail.com" target="_blank" rel="noopener">Write in Gmail</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/volodymyr-hridin-1baa33159/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="Volodymyr_Hridin_CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+      <form class="c-form" action="https://formsubmit.co/volodymyr.hridin@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New message from your portfolio site">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://volodymyradrise.github.io/thanks.html">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <label>Your name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Your email<input type="email" name="email" required autocomplete="email"></label>
+        <label><div>Company <span>(optional)</span></div><input type="text" name="company" autocomplete="organization"></label>
+        <label>Message<textarea name="message" rows="5" required></textarea></label>
+        <button class="btn primary" type="submit">Send message</button>
+      </form>
     </div>
   </div>
 </div></section>
@@ -296,6 +348,7 @@ footer{padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
 document.querySelectorAll('.shots img').forEach(function(i){
   i.addEventListener('click',function(){var lb=document.getElementById('lb');lb.querySelector('img').src=i.src;lb.style.display='flex';});
 });
+var cp=document.getElementById('copy');if(cp)cp.addEventListener('click',function(){var e='volodymyr.hridin@gmail.com';function done(){cp.textContent='Copied ✓';setTimeout(function(){cp.textContent='Copy email'},2000)}try{navigator.clipboard.writeText(e).then(done,function(){prompt('Email:',e)})}catch(x){prompt('Email:',e)}});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').style.display='none';});
 </script>
 </body>
